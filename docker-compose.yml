@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  firebase:
+    container_name: "firebase"
+    hostname: "firebase-tools"
+    build: ./
+    volumes:
+      - ./firebase/:/firebase
+      - ./firebase/bin/:/firebase
+      - ./firebase/config/:/firebase
+    ports:
+      - 80:80
+      - 8081:8081 # Emulator Suite UI
+      - 5002:5002 # Firebase Hosting
+      - 5001:5001 # Clound Functions
+      - 9000:9000 # Realtime Database
+      - 8080:8080 # Cloud Firestore
+      - 8085:8085 # Cloud Pub/Sub
+      - 4000:4000
+      - 4400:4400
+      - 4500:4500
+      - 9150:9150
+      - 9005:9005
+    tty: true
+
+networks:
+  michicolle:
+    external: true

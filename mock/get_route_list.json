@@ -1,0 +1,94 @@
+{
+  "uuid": "100974b4-02c9-46ea-9ce1-97e44aedba8c",
+  "lastMigration": 33,
+  "name": "michicolle",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "41a0be34-f6ef-47cc-80c1-767139c3a03a",
+      "type": "http",
+      "documentation": "国道の一覧を取得",
+      "method": "get",
+      "endpoint": "routes",
+      "responses": [
+        {
+          "uuid": "c9b49dff-c884-4cc4-96a4-224b190a1efe",
+          "body": "{\n  \"routes\": [\n    {\"id\": 0, \"name\": \"国道1号線\"},\n    {\"id\": 1, \"name\": \"国道2号線\"},\n    {\"id\": 2, \"name\": \"国道3号線\"},\n    {\"id\": 3, \"name\": \"国道4号線\"},\n    {\"id\": 4, \"name\": \"国道5号線\"},\n    {\"id\": 5, \"name\": \"国道6号線\"},\n    {\"id\": 6, \"name\": \"国道7号線\"},\n    {\"id\": 7, \"name\": \"国道8号線\"},\n    {\"id\": 8, \"name\": \"国道9号線\"},\n    {\"id\": 9, \"name\": \"国道10号線\"}\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "成功",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "41a0be34-f6ef-47cc-80c1-767139c3a03a"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}

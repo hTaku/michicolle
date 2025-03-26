@@ -15,6 +15,12 @@ dependencies:
   bordered_text: ^2.0.0
   location: ^7.0.1
   flutter_map_animations: ^0.8.0
+  http: ^1.2.2
+  flutter_dotenv: ^5.2.1
+  flutter_riverpod: ^2.6.1
+  flutter_expandable_fab: ^2.3.0
+  
+
 
 dev_dependencies:
   flutter_test:
@@ -27,3 +33,6 @@ flutter:
     - family: keifont
       fonts:
         - asset: lib/assets/fonts/keifont/keifont.ttf
+  assets:
+    - .env.development
+    - .env.production

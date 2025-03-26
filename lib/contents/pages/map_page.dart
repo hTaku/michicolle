@@ -1,9 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:location/location.dart';
+import 'package:michicolle/contents/pages/routes_dialog.dart';
 import 'package:michicolle/utils/permission/location_permission_request.dart';
 
 
@@ -31,21 +34,43 @@ class _MapPageState extends State<MapPage>{
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        FlutterMap(
-          mapController: _mapController,
-          options: MapOptions(
-            initialCenter: widget.initialLocation,
-            initialZoom: 15.0,
+    return Scaffold(
+      body: FlutterMap(
+        mapController: _mapController,
+        options: MapOptions(
+          initialCenter: widget.initialLocation,
+          initialZoom: 15.0,
+        ),
+        children: [
+          TileLayer(
+            urlTemplate: dotenv.get('MAP_TILE_URL'),
           ),
-          children: [
-            TileLayer(
-              urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-            ),
-          ]
-        )
-      ],
+        ],
+      ),
+      floatingActionButtonLocation: ExpandableFab.location,
+      floatingActionButton: ExpandableFab(
+        type: ExpandableFabType.fan,
+        fanAngle: 90,
+        children: [
+          // 国道一覧ダイアログ表示
+          FloatingActionButton(
+            onPressed: _showRoutesDialog,
+            child: Icon(Icons.map),
+          ),
+          // 現在地表示
+          FloatingActionButton(
+            onPressed: _showRoutesDialog,
+            child: Icon(Icons.near_me),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _showRoutesDialog() {
+    showDialog(
+      context: context,
+      builder:(context) => RoutesDialog(),
     );
   }
 

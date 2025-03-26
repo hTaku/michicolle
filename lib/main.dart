@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'contents/pages/jingle_page.dart';
 import 'theme/material_theme.dart';
 
-void main() {
+
+Future<void> main() async {
+  const envFile = String.fromEnvironment('env');
+  await dotenv.load(fileName: envFile);
+
   runApp(const MainApp());
 }
 

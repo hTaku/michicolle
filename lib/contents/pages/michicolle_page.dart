@@ -12,7 +12,7 @@ class MichicollePage extends StatefulWidget {
 }
 
 class _MichicolleNavigationState extends State<MichicollePage> {
-  int currentPageIndex = 1;
+  int currentPageIndex = 0;
 
   @override
   void initState() {
@@ -33,12 +33,8 @@ class _MichicolleNavigationState extends State<MichicollePage> {
         selectedIndex: currentPageIndex,
         destinations: const <Widget>[
           NavigationDestination(
-            icon: Icon(Icons.search),
-            label: 'さがす',
-          ),
-          NavigationDestination(
             icon: Icon(Icons.location_on),
-            label: '地図',
+            label: 'ちず',
           ),
           NavigationDestination(
             icon: Icon(Icons.person),
@@ -49,31 +45,9 @@ class _MichicolleNavigationState extends State<MichicollePage> {
       body: <Widget>[
         // TODO: 以下のUIをどうするか？
         /// Notifications page
-        const Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Column(
-            children: <Widget>[
-              Card(
-                child: ListTile(
-                  leading: Icon(Icons.notifications_sharp),
-                  title: Text('Notification 1'),
-                  subtitle: Text('This is a notification'),
-                ),
-              ),
-              Card(
-                child: ListTile(
-                  leading: Icon(Icons.notifications_sharp),
-                  title: Text('Notification 2'),
-                  subtitle: Text('This is a notification'),
-                ),
-              ),
-            ],
-          ),
-        ),
 
         /// 地図ページ
         MapPage(initialLocation: widget.initialLocation),
-
 
         /// Messages page
         ListView.builder(
